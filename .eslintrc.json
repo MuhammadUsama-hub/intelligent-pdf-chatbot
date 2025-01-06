@@ -1,0 +1,42 @@
+{
+    "env": {
+      "node": true,
+      "ESNext": true,
+      "browser": true,
+      "jest": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",  // TypeScript rules
+      "plugin:prettier/recommended"  // Integrates Prettier with ESLint
+    ],
+    "parser": "@typescript-eslint/parser",  // TypeScript parser
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module",
+      "project": "./tsconfig.json"
+    },
+    "plugins": [
+      "@typescript-eslint", 
+      "import", 
+      "unused-imports", 
+      "prettier"
+    ],
+    
+    "rules": {
+      "no-console": "warn",
+      "no-unused-vars": "off",  // Disable default unused-vars rule in favor of TypeScript plugin
+      "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],  // TypeScript-specific rule
+      "unused-imports/no-unused-imports-ts": "warn",  // Automatically remove unused imports
+      "import/no-unused-modules": ["warn", { "unusedExports": true }],  // Warn about unused exports
+      "prettier/prettier": "error"  // Prettier rules will be treated as ESLint errors
+    },
+    "settings": {
+      "import/resolver": {
+        "typescript": {
+          "project": "./tsconfig.json"
+        }
+      }
+    }
+  }
+  

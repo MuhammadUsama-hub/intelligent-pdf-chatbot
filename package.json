@@ -1,0 +1,52 @@
+{
+  "name": "intelligent-pdf-chatbot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "local": "nodemon server.ts",
+    "build": "tsc",
+    "dev": "cross-env NODE_ENV=dev npm run local",
+    "prod": "cross-env NODE_ENV=prod npm run local",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
+    "format": "prettier --write 'src/**/*.{ts,tsx}'"
+  },
+  "keywords": ["chatbot", "pdf", "intelligent", "openai"],
+  "author": "Usama Sheikh",
+  "license": "MIT",
+  "description": "",
+  "nodemonConfig": {
+    "ignore": [
+      "dist/*"
+    ],
+    "ext": "ts"
+  },
+  "dependencies": {
+    "axios": "^1.7.8",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.4",
+    "openai": "^4.74.0"
+  },
+  "devDependencies": {
+    "@types/errorhandler": "^1.5.3",
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
+    "@types/node-notifier": "^8.0.5",
+    "@typescript-eslint/eslint-plugin": "^8.16.0",
+    "@typescript-eslint/parser": "^8.16.0",
+    "cross-env": "^7.0.3",
+    "errorhandler": "^1.5.1",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "morgan": "^1.10.0",
+    "node-notifier": "^10.0.1",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.4.1",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0"
+  }
+}

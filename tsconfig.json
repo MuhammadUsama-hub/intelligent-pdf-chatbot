@@ -1,0 +1,47 @@
+{ "compilerOptions": {
+    "target": "ESNext",                         // Target the latest ECMAScript version
+    "module": "commonjs",                       // Module system for Node.js (commonjs for server-side)
+    "moduleResolution": "node",                 // Use Node's module resolution strategy
+    "esModuleInterop": true,                    // Ensures compatibility between ES and CommonJS modules
+    "skipLibCheck": true,                       // Skip type checking of declaration files for faster builds
+    "forceConsistentCasingInFileNames": true,   // Enforce consistent file naming (case sensitivity)
+    "strict": true,                             // Enable all strict type-checking options
+    "noImplicitAny": true,                      // Disallow 'any' type unless explicitly defined
+    "strictNullChecks": true,                   // Ensure null and undefined are properly handled
+    "strictFunctionTypes": true,                // Enforce function argument type checking
+    "strictBindCallApply": true,                // Enforce strict checking of `bind`, `call`, and `apply`
+    "noUnusedLocals": true,                     // Report errors for unused local variables
+    "noUnusedParameters": true,                 // Report errors for unused parameters
+    "noImplicitReturns": true,                  // Report errors if a function is missing a return value
+    "noFallthroughCasesInSwitch": true,         // Ensure all switch statements are exhaustive
+    "allowJs": false,                           // Disable JavaScript files in the TypeScript compilation
+    "outDir": "dist",                         // Output directory for compiled files
+    "rootDir": ".",                         // Root directory for your source TypeScript files
+    "resolveJsonModule": true,                  // Allow importing JSON files as modules
+    "isolatedModules": true,                    // Ensure each file is treated as an isolated module
+    "sourceMap": true,                          // Generate source maps for easier debugging
+    "declaration": true,                        // Generate declaration files (.d.ts)
+    "declarationMap": true,                     // Create declaration map for type definitions
+    "skipDefaultLibCheck": true,                // Skip checking built-in libraries for quicker builds
+    "strictPropertyInitialization": true,       // Ensure all class properties are initialized
+    "experimentalDecorators": true,             // Enable support for decorators
+    "emitDecoratorMetadata": true,              // Enable metadata for decorators
+    "removeComments": true ,                     // Strips all comments from TypeScript files when converting into JavaScript- you rarely read compiled code so this saves space
+"baseUrl": "./",                         // Base URL is the root of the project, or `./src` for src-folder specific aliasing
+    "paths": {
+      "@/*": ["src/*"] ,             // Maps `@/` to the `src/` directory
+      "#/*":["src/module/*"]           // Maps` #/` to  `src/module/` directory
+    }, 
+  },
+  "include": [
+    "./**/*.ts"                                  // Include all TypeScript files with ts extension
+  ],
+  "exclude": [
+    "node_modules",                             // Exclude node_modules (default)
+    "**/*.test.ts",                             // Optionally exclude test files from compilation
+    "dist"                                      // Exclude the dist folder (compiled files)
+  ]
+  ,"ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}
