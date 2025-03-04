@@ -10,9 +10,10 @@ export const pc = new Pinecone({
   apiKey: process.env.DATABASE_API_KEY!,
 });
 
+export const indexName = "documents";
+
 //PC index creation
 (async () => {
-  const indexName = "documents";
   const existingIndexes = await pc.listIndexes();
 
   if (
@@ -20,7 +21,7 @@ export const pc = new Pinecone({
   ) {
     await pc.createIndex({
       name: indexName,
-      dimension: 1536,
+      dimension: 1024,
       metric: "cosine",
       spec: {
         serverless: {
@@ -37,6 +38,8 @@ export const pc = new Pinecone({
   }
 })();
 
+export const index = pc.index(indexName);
+export const model = "multilingual-e5-large";
 const server = http.createServer(app);
 const PORT = process.env.PORT;
 
