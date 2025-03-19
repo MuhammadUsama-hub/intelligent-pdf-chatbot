@@ -1,27 +1,37 @@
-import express, { json, urlencoded } from "express";
+import express from "express";
 import errorMiddleware from "@/module/middlewares/error.middleware";
 import morgan from "morgan";
-import conversationRouter from "#/conversation/conversation.router";
+import cors from "cors";
 import userRouter from "./module/users/user.router";
-import topicRouter from "./module/topic/topic.router";
+import multer from "multer";
+import fileRouter from "./module/file/file.router";
+
+const upload = multer({ dest: "/tmp" });
 
 const app = express();
 
-// req data parsers
-app.use(
-  urlencoded({
-    extended: true,
-  })
-);
-app.use(json());
+// cors middleware
+app.use((req, res, next) => {
+  cors({ credentials: true, origin: req.headers["origin"]?.toLowerCase() })(
+    req,
+    res,
+    next
+  );
+});
+
+// body parser
+app.use(express.json());
+
+// file upload
+app.use(upload.single("file"));
 
 // request logger
 app.use(morgan("short"));
 
 //routes
-app.use("/conversations", conversationRouter);
+
+app.use("/files", fileRouter);
 app.use("/users", userRouter);
-app.use("/topics", topicRouter);
 
 //global error handler
 errorMiddleware(app);
