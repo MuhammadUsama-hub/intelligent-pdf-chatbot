@@ -42,13 +42,12 @@ const fetch = async (query: string[]) => {
   });
 
   const queryResponse = await index.namespace(indexName).query({
-    topK: 3,
+    topK: 2,
     vector: embeddingQuery[0].values!,
     includeValues: false,
     includeMetadata: true,
   });
 
-  console.log(queryResponse);
   return queryResponse;
 };
 const FileServices = {
