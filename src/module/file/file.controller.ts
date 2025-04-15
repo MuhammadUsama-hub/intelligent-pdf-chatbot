@@ -16,7 +16,7 @@ const create = async (req: Request, res: Response) => {
   res.status(200).json({ data: result });
 };
 
-const fetch = async (req: Request, res: Response) => {
+const createChat = async (req: Request, res: Response) => {
   let { query } = req.body;
   const result = await FileServices.fetch(query);
 
@@ -37,6 +37,6 @@ const fetch = async (req: Request, res: Response) => {
 
 const FileController = {
   create,
-  fetch,
+  createChat,
 };
 export default FileController;

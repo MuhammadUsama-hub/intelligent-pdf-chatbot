@@ -3,7 +3,7 @@ import FileController from "./file.controller";
 
 const fileRouter = express.Router();
 
-fileRouter.post("/", FileController.create);
-fileRouter.get("/", FileController.fetch);
+fileRouter.post("/upload", FileController.create);
+fileRouter.post("/chat", FileController.createChat);
 
 export default fileRouter;
