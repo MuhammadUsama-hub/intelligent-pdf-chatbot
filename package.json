@@ -36,7 +36,7 @@
     "llamaindex": "^0.8.30",
     "mongoose": "^8.8.4",
     "multer": "^1.4.5-lts.1",
-    "openai": "^4.74.0",
+    "openai": "^4.89.0",
     "remove-markdown": "^0.6.0"
   },
   "devDependencies": {
