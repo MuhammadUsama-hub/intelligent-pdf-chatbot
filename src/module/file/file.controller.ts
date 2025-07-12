@@ -4,6 +4,7 @@ import main from "@/lib/open-ai/connect-ai";
 import removeMd from "remove-markdown";
 
 const create = async (req: Request, res: Response) => {
+  console.log(req.file);
   if (!req.file) {
     res.status(400).json({ message: "No file uploaded" });
     return;
@@ -32,7 +33,7 @@ const createChat = async (req: Request, res: Response) => {
   const aiAnswer = await main(query, knowledge);
   const cleanedAnswer = removeMd(aiAnswer!);
 
-  res.status(200).json({ data: cleanedAnswer });
+  res.status(200).json({ answer: cleanedAnswer });
 };
 
 const FileController = {
